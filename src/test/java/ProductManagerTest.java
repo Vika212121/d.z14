@@ -12,7 +12,11 @@ class ProductManagerTest {
     Product product2 = new Product(6, "Iphone 13", 90000);
 
     ProductRepository repository = new ProductRepository();
-    ProductManager manager = new ProductManager(repository);
+    ProductManager manager;
+
+    ProductManagerTest() {
+        manager = new ProductManager(repository);
+    }
 
     @BeforeEach
     public void setUp() {
