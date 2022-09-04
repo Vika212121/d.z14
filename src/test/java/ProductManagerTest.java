@@ -8,11 +8,11 @@ class ProductManagerTest {
     Product book2 = new Book(2, "Солнце", 450, "Владимир Дюжин");
     Product smartPhone1 = new Smartphone(3, "Iphone 11", 50000, "Apple");
     Product smartPhone2 = new Smartphone(4, "Iphone 12", 70000, "Apple");
-    Product product1 = Product.createProduct(5, "Луна", 700);
-    Product product2 = Product.createProduct(6, "Iphone 13", 90000);
+    Product product1 = new Product(5, "Луна", 700);
+    Product product2 = new Product(6, "Iphone 13", 90000);
 
     ProductRepository repository = new ProductRepository();
-    ProductManager manager = ProductManager.createProductManager(repository);
+    ProductManager manager = new ProductManager(repository);
 
     @BeforeEach
     public void setUp() {
