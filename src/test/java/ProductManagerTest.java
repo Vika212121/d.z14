@@ -41,4 +41,30 @@ class ProductManagerTest {
     void shouldRemoveByIdNotExist() {
         assertThrows(NotFoundException.class, () -> repository.removeById(10));
     }
+    @Test
+    void shouldFindPhoneById() {
+        repository.save(book1);
+        repository.save(book2);
+        manager.add(smartPhone1);
+        manager.add(smartPhone2);
+        manager.add(product1);
+        manager.add(product2);
+
+        Product expected = product2;
+        Product actual = repository.findById(6);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void shouldFindByNonexistentId() {
+        repository.save(book1);
+        repository.save(book2);
+        repository.save(smartPhone1);
+        repository.save(smartPhone2);
+        repository.save(product1);
+        repository.save(product2);
+
+        Product actual = manager.findById(333);
+        assertNull(actual);
+    }
+
 }
